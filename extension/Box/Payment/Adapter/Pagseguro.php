@@ -14,7 +14,7 @@ require_once('PagSeguroLibrary/PagSeguroLibrary.php');
 /**
  * Pagseguro Payment Adapter Class
  */
-class Ec_Payment_Adapter_Pagseguro extends Box_Payment_Adapter_Abstract
+class Box_Payment_Adapter_Pagseguro extends Box_Payment_Adapter_Abstract
 {
 
     /**
@@ -152,9 +152,11 @@ class Ec_Payment_Adapter_Pagseguro extends Box_Payment_Adapter_Abstract
                     $tr->setPaymentStatus(Box_Payment_Transaction::STATUS_COMPLETE);
                     break;
                 case TransationStatus::REFUNDED:
-                    $tr->setPaymentStatus(Box_Payment_Transaction::TXTYPE_REFUND)
+                    $tr->setPaymentStatus(Box_Payment_Transaction::TXTYPE_REFUND);
+                    break;
                 default:
                     $tr->setIsValid(false);
+                    break;
             }
 
             return $tr;
