@@ -74,7 +74,7 @@ class Box_Payment_Adapter_PagamentoDigital extends Box_Payment_Adapter_Abstract
             'cod_loja' => $this->getParam('code'),
             'nome' => $buyer->getFullName(),
             'email' => $buyer->getEmail(),
-            'parcela_maxima' => $this->getParam('max_parcels')
+            'parcela_maxima' => $this->getParam('max_parcels'),
             'id_pedido' => $invoice->getNumber()
         );
 
