@@ -4,7 +4,7 @@
  * 
  * @author Erle Carrara <carrara.erle@gmail.com>
  * @version 0.1
- * @package Ec_Payment_Adapter
+ * @package Box_Payment_Adapter
  */
 
 
@@ -56,7 +56,7 @@ class Box_Payment_Adapter_Pagseguro extends Box_Payment_Adapter_Abstract
      */
     public function getServiceURL()
     {
-        return $this->_url;
+        return 'https://ws.pagseguro.uol.com.br/v2/checkout';
     }
 
     /**
@@ -81,7 +81,7 @@ class Box_Payment_Adapter_Pagseguro extends Box_Payment_Adapter_Abstract
 
         $paymentRequest = new PaymentRequest();
         $paymentRequest->setCurrency($this->getParam('currency'));
-        $paymentRequest->setSenderName($buyer->getFullName());
+        $paymentRequest->setSenderName($buyer->getName() . $buyer->getLastName());
         $paymentRequest->setSenderEmail($buyer->email);
         $paymentRequest->setReference($invoice->getNumber());
 
