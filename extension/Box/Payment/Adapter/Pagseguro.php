@@ -81,7 +81,7 @@ class Box_Payment_Adapter_Pagseguro extends Box_Payment_Adapter_Abstract
 
         $paymentRequest = new PaymentRequest();
         $paymentRequest->setCurrency($this->getParam('currency'));
-        $paymentRequest->setSenderName($buyer->getName() . $buyer->getLastName());
+        $paymentRequest->setSenderName($buyer->getFirstName() . $buyer->getLastName());
         $paymentRequest->setSenderEmail($buyer->email);
         $paymentRequest->setReference($invoice->getNumber());
 
