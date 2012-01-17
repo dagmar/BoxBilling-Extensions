@@ -149,8 +149,8 @@ class Box_Payment_Adapter_Moip extends Box_Payment_Adapter_Abstract
         if ($answer->success and !empty($answer->payment_url)) {
             return $answer->payment_url;
         } else {
-            $response = simplexml_load_string($answer->mensagem->resposta);
-            throw new Box_Payment_Exception($response->Resposta->Status . ': ' .$response->Resposta->Erro);
+            $response = htmlentities($answer->mensagem->resposta);
+            throw new Box_Payment_Exception('MoIP Error: <br />' . $response);
         }
     }
 
